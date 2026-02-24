@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Product Page</title>
+<style>
+body {
+    font-family: Arial;
+}
+header {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+nav a {
+    margin-right: 10px;
+}
+.container {
+    display: flex;
+}
+.sidebar {
+    width: 20%;
+}
+.products {
+    width: 80%;
+}
+.card {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;
+}
+footer {
+    border-top: 1px solid black;
+    margin-top: 20px;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h2>My Online Store</h2>
+<nav>
+<a href="#">Home</a>
+<a href="#">Shop</a>
+<a href="#">Cart</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<h3>Big Sale - Up to 50% Off</h3>
+<button>Shop Now</button>
+
+<div class="container">
+
+<div class="sidebar">
+<h4>Filters</h4>
+<input type="checkbox"> Electronics <br>
+<input type="checkbox"> Fashion <br>
+<input type="checkbox"> Home <br><br>
+Price: <input type="range">
+</div>
+
+<div class="products">
+
+<div class="card">
+<img src="c:\Users\LENOVO\Downloads\headphones.webp" width="60%">
+<h4>Headphones</h4>
+<p>Price: Rs.8000</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="c:\Users\LENOVO\Downloads\watch.webp" width="79%">
+<h4>Watch</h4>
+<p>Price: Rs.5000</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="c:\Users\LENOVO\Downloads\laptop.webp" width="100%">
+<h4>Laptop</h4>
+<p>Price: Rs.60000</p>
+<button>Add to Cart</button>
+</div>
+
+</div>
+</div>
+
+<footer>
+<p>About Us | Customer Service | Follow Us</p>
+</footer>
+
+</body>
+</html>
