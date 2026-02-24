@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College Event Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: #ffffff;
+      max-width: 520px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      width: 70px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .event-info {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      transform: translateY(-50%);
+      color: #777;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      padding: 12px 12px 12px 42px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .input-group textarea {
+      border-radius: 16px;
+      resize: none;
+      height: 90px;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 5px rgba(102,126,234,0.4);
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 15px;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .radio-group label {
+      cursor: pointer;
+    }
+
+    .checkbox {
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .checkbox input {
+      margin-right: 6px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background: #eee;
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background: #ddd;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    
+    <!-- Optional College Logo -->
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="College Logo">
+    </div>
+<h2> Symbiosis Institute Of Technology</h2>
+    <h2> Event Registration</h2>
+
+    <div class="event-info">
+      📅 15 March 2026 &nbsp; | &nbsp; 📍 Seminar Hall A
+    </div>
+
+    <form id="eventForm">
+      
+      <div class="input-group">
+        <i class="fa fa-user"></i>
+        <input type="text" placeholder="Full Name" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-envelope"></i>
+        <input type="email" placeholder="Email Address" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-phone"></i>
+        <input type="tel" placeholder="Phone Number" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-building-columns"></i>
+        <input type="text" placeholder="College / University Name" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-code-branch"></i>
+        <input type="text" placeholder="Department / Branch" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-graduation-cap"></i>
+        <select required>
+          <option value="">Year of Study</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-calendar-check"></i>
+        <select required>
+          <option value="">Select Event</option>
+          <option>Hackathon</option>
+          <option>Workshop</option>
+          <option>Seminar</option>
+          <option>Cultural Fest</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-id-card"></i>
+        <input type="text" placeholder="Registration ID / Roll Number" required>
+      </div>
+
+      <div class="radio-group">
+        <label><input type="radio" name="mode" required> Online</label>
+        <label><input type="radio" name="mode"> Offline</label>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-pen"></i>
+        <textarea placeholder="Any prior experience related to the event (optional)"></textarea>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" required>
+          I agree to the terms and conditions
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button type="submit" class="btn-primary">Register Now</button>
+        <button type="reset" class="btn-secondary">Clear</button>
+      </div>
+
+      <div class="success-message" id="successMsg">
+        ✅ Registration Successful! See you at the event.
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("eventForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      successMsg.style.display = "block";
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
