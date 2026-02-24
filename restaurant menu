@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delish Restaurant Menu</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    color: #fff;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+.menu-section {
+    padding: 40px;
+}
+
+.category {
+    margin-bottom: 60px;
+}
+
+.category h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-left: 6px solid #ffcc70;
+    padding-left: 15px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.menu-card {
+    background: #fff;
+    color: #333;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    transition: all 0.4s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-12px) scale(1.04);
+    box-shadow: 0 30px 50px rgba(0,0,0,0.35);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.menu-info {
+    padding: 15px;
+}
+
+.menu-info h3 {
+    margin: 5px 0;
+}
+
+.menu-info p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.price {
+    font-weight: bold;
+    color: #c33764;
+    margin-top: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.85;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🍴 Delish Restaurant</h1>
+    <p>Where Taste Meets Happiness</p>
+</header>
+
+<div class="menu-section">
+
+<!-- STARTERS -->
+<div class="category">
+<h2>🥗 Starters</h2>
+<div class="menu-grid">
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\paneer-tikka-2.jpg">
+<div class="menu-info">
+<h3>Paneer Tikka</h3>
+<p>Grilled cottage cheese with spices</p>
+<div class="price">₹220</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\Crispy-spring-rolls-500x500.jpg">
+<div class="menu-info">
+<h3>Spring Rolls</h3>
+<p>Crispy veggie rolls</p>
+<div class="price">₹180</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\french fries.jpg">
+<div class="menu-info">
+<h3>French Fries</h3>
+<p>Golden & crispy fries</p>
+<div class="price">₹120</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\manchurian-with-product-p1-2.jpg">
+<div class="menu-info">
+<h3>Veg Manchurian</h3>
+<p>Indo-Chinese delight</p>
+<div class="price">₹200</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- MAIN COURSE -->
+<div class="category">
+<h2>🍛 Main Course</h2>
+<div class="menu-grid">
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\butter-paneer-masala-one-pot.jpg">
+<div class="menu-info">
+<h3>Butter Paneer Masala</h3>
+<p>Rich & creamy gravy</p>
+<div class="price">₹320</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\Vegetable-Dum-Biryani-5.jpg">
+<div class="menu-info">
+<h3>Veg Biryani</h3>
+<p>Aromatic rice & spices</p>
+<div class="price">₹280</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\white-sauce-pasta-featured.webp">
+<div class="menu-info">
+<h3>White Sauce Pasta</h3>
+<p>creamy pasta with lots of veggies</p>
+<div class="price">₹220</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\Supreme_Pizza_006-3b04db62117d404e9c37b126d7a7f0a2.jpg">
+<div class="menu-info">
+<h3>Italian Pizza</h3>
+<p>Thin crust crispy pizza</p>
+<div class="price">₹240</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- DESSERTS -->
+<div class="category">
+<h2>🍰 Desserts</h2>
+<div class="menu-grid">
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\chocolava-cake-500x500.webp">
+<div class="menu-info">
+<h3>Chocolate Lava Cake</h3>
+<p>Hot & gooey cake</p>
+<div class="price">₹150</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\sundae.jpg">
+<div class="menu-info">
+<h3>Ice Cream Sundae</h3>
+<p>Vanilla with chocolate</p>
+<div class="price">₹130</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\gulab.jpg">
+<div class="menu-info">
+<h3>Gulab Jamun</h3>
+<p>Soft & juicy dessert</p>
+<div class="price">₹110</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\brownie.jpg">
+<div class="menu-info">
+<h3>Brownie</h3>
+<p>Chocolate walnut brownie</p>
+<div class="price">₹140</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- BEVERAGES -->
+<div class="category">
+<h2>🥤 Beverages</h2>
+<div class="menu-grid">
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\coffee.jpg">
+<div class="menu-info">
+<h3>Cold Coffee</h3>
+<p>Chilled & creamy</p>
+<div class="price">₹120</div>
+</div>
+</div>
+
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\SAVEUR_Mojito_1149-Edit-scaled.webp">
+<div class="menu-info">
+<h3>Mojito</h3>
+<p>Minty freshness</p>
+<div class="price">₹140</div>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="c:\Users\LENOVO\Downloads\How-to-Make-a-Milkshake-11-540x720.webp">
+<div class="menu-info">
+<h3>Milkshake</h3>
+<p>Chocolate / Strawberry</p>
+<div class="price">₹160</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 Delish Restaurant | Crafted with ❤️
+</footer>
+
+</body>
+</html>
