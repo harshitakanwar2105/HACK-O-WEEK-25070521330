@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do List</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            /* Nordic Sea Palette */
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+            --accent: #2c3e50; 
+            --interactive: #3498db;
+            --text-main: #2c3e50;
+            --text-dim: #7f8c8d;
+            --border: #dcdde1;
+            --danger: #e74c3c;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1c2c;
+                --card-bg: #24273d;
+                --accent: #8e94b5;
+                --interactive: #5dade2;
+                --text-main: #e0e6ed;
+                --text-dim: #9499b7;
+                --border: #3d415e;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Georgia", Times, serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        header {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 4px;
+            color: var(--interactive);
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-family: sans-serif;
+        }
+
+        /* Input Section */
+        .input-section {
+            display: flex;
+            gap: 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--interactive);
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 0;
+            color: var(--text-main);
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .add-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--interactive);
+            padding: 0 8px;
+            transition: transform 0.2s;
+        }
+
+        .add-btn:hover {
+            transform: translateX(3px);
+        }
+
+        /* Task List */
+        .task-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            transition: opacity 0.2s;
+        }
+
+        .task-item.removing {
+            opacity: 0;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1.5px solid var(--interactive);
+            border-radius: 4px;
+            margin-right: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+
+        .task-item.completed .checkbox {
+            background: var(--interactive);
+            border-color: var(--interactive);
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .task-text {
+            flex-grow: 1;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 12px;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            padding: 2px;
+            transition: color 0.2s;
+        }
+
+        .icon-btn:hover {
+            color: var(--interactive);
+        }
+
+        .delete-btn:hover {
+            color: var(--danger);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-dim);
+            font-family: sans-serif;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .app-container {
+                padding: 24px;
+                border-radius: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>Tasks</h1>
+            <p class="subtitle" id="stats-text">0 completed</p>
+        </header>
+
+        <section class="input-section">
+            <input type="text" id="taskInput" placeholder="Add a new goal..." aria-label="Task content">
+            <button class="add-btn" id="addBtn">
+                <i data-lucide="chevron-right"></i>
+            </button>
+        </section>
+
+        <section>
+            <ul id="taskList" class="task-list"></ul>
+            <div id="emptyState" class="empty-state">
+                <p>Everything is done.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addBtn = document.getElementById('addBtn');
+        const taskList = document.getElementById('taskList');
+        const emptyState = document.getElementById('emptyState');
+        const statsText = document.getElementById('stats-text');
+
+        let tasks = JSON.parse(localStorage.getItem('nordic_todo_tasks')) || [];
+
+        function refreshIcons() {
+            lucide.createIcons();
+        }
+
+        function saveTasks() {
+            localStorage.setItem('nordic_todo_tasks', JSON.stringify(tasks));
+            updateStats();
+        }
+
+        function updateStats() {
+            const completed = tasks.filter(t => t.completed).length;
+            const total = tasks.length;
+            statsText.textContent = total === 0 ? "Enjoy your day" : `${completed} of ${total} objectives met`;
+            emptyState.style.display = total === 0 ? 'block' : 'none';
+        }
+
+        // --- Celebration Logic ---
+
+        function playVictorySound() {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContext) return;
+            
+            const ctx = new AudioContext();
+            
+            const playTone = (freq, startTime, duration) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, startTime);
+                
+                gain.gain.setValueAtTime(0, startTime);
+                gain.gain.linearRampToValueAtTime(0.1, startTime + 0.05);
+                gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+                
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                
+                osc.start(startTime);
+                osc.stop(startTime + duration);
+            };
+
+            const now = ctx.currentTime;
+            // Play a little victory jingle (G4 -> C5)
+            playTone(392.00, now, 0.5); // G4
+            playTone(523.25, now + 0.1, 0.8); // C5
+        }
+
+        function fireConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 100,
+                origin: { y: 0.6 },
+                colors: ['#3498db', '#5dade2', '#ffffff', '#f1c40f']
+            });
+        }
+
+        // --- Core Logic ---
+
+        function renderTasks() {
+            taskList.innerHTML = '';
+            tasks.forEach((task) => {
+                const li = document.createElement('li');
+                li.className = `task-item ${task.completed ? 'completed' : ''}`;
+                li.dataset.id = task.id;
+                
+                li.innerHTML = `
+                    <div class="checkbox" onclick="toggleTask('${task.id}')">
+                        ${task.completed ? '<i data-lucide="check" style="width: 14px; height: 14px; color: white;"></i>' : ''}
+                    </div>
+                    <span class="task-text" onblur="finishEditing('${task.id}', this)" onkeydown="checkEnter(event, this)">${task.text}</span>
+                    <div class="action-btns">
+                        <button class="icon-btn" onclick="startEditing(this)" title="Edit">
+                            <i data-lucide="edit-3" style="width: 14px; height: 14px;"></i>
+                        </button>
+                        <button class="icon-btn delete-btn" onclick="deleteTask('${task.id}')" title="Delete">
+                            <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>
+                        </button>
+                    </div>
+                `;
+                taskList.appendChild(li);
+            });
+            refreshIcons();
+            updateStats();
+        }
+
+        function addTask() {
+            const text = taskInput.value.trim();
+            if (text === '') return;
+            tasks.push({ id: Date.now().toString(), text, completed: false });
+            taskInput.value = '';
+            saveTasks();
+            renderTasks();
+        }
+
+        window.toggleTask = function(id) {
+            const task = tasks.find(t => t.id === id);
+            const becomingCompleted = task && !task.completed;
+            
+            tasks = tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+            
+            if (becomingCompleted) {
+                fireConfetti();
+                
+                // Check if ALL tasks are now completed
+                const allDone = tasks.every(t => t.completed);
+                if (allDone && tasks.length > 0) {
+                    playVictorySound();
+                }
+            }
+            
+            saveTasks();
+            renderTasks();
+        };
+
+        window.deleteTask = function(id) {
+            const element = document.querySelector(`[data-id="${id}"]`);
+            element.classList.add('removing');
+            setTimeout(() => {
+                tasks = tasks.filter(t => t.id !== id);
+                saveTasks();
+                renderTasks();
+            }, 200);
+        };
+
+        window.startEditing = function(btn) {
+            const textSpan = btn.closest('.task-item').querySelector('.task-text');
+            textSpan.contentEditable = "true";
+            textSpan.focus();
+        };
+
+        window.finishEditing = function(id, span) {
+            const newText = span.textContent.trim();
+            if (newText !== '') {
+                tasks = tasks.map(t => t.id === id ? { ...t, text: newText } : t);
+                saveTasks();
+            }
+            span.contentEditable = "false";
+            renderTasks();
+        };
+
+        window.checkEnter = function(e, span) {
+            if (e.key === 'Enter') { e.preventDefault(); span.blur(); }
+        };
+
+        addBtn.addEventListener('click', addTask);
+        taskInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') addTask(); });
+
+        document.addEventListener('DOMContentLoaded', renderTasks);
+    </script>
+</body>
+</html>
