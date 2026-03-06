@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#74ebd5,#ACB6E5);
+    margin:0;
+    padding:0;
+}
+.container{
+    width:60%;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+}
+.question{
+    margin:20px 0;
+}
+button{
+    display:block;
+    margin:20px auto;
+    padding:12px 25px;
+    font-size:16px;
+    border:none;
+    background:#4CAF50;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#45a049;
+}
+#result{
+    margin-top:25px;
+    padding:15px;
+    border-radius:10px;
+    background:#f4f4f4;
+}
+.correct{color:green;}
+.wrong{color:red;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Student Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<h3>1. What does HTML stand for?</h3>
+<label><input type="radio" name="q1" value="a"> Hyper Text Markup Language</label><br>
+<label><input type="radio" name="q1" value="b"> High Tech Modern Language</label><br>
+<label><input type="radio" name="q1" value="c"> Hyper Transfer Mark Language</label>
+</div>
+
+<div class="question">
+<h3>2. Which tag is used to insert an image?</h3>
+<label><input type="radio" name="q2" value="a"> &lt;img&gt;</label><br>
+<label><input type="radio" name="q2" value="b"> &lt;image&gt;</label><br>
+<label><input type="radio" name="q2" value="c"> &lt;pic&gt;</label>
+</div>
+
+<div class="question">
+<h3>3. Which language is used for styling web pages?</h3>
+<label><input type="radio" name="q3" value="a"> HTML</label><br>
+<label><input type="radio" name="q3" value="b"> CSS</label><br>
+<label><input type="radio" name="q3" value="c"> Python</label>
+</div>
+
+<div class="question">
+<h3>4. Which symbol is used for HTML comments?</h3>
+<label><input type="radio" name="q4" value="a"> //</label><br>
+<label><input type="radio" name="q4" value="b"> &lt;!-- --&gt;</label><br>
+<label><input type="radio" name="q4" value="c"> ##</label>
+</div>
+
+<div class="question">
+<h3>5. Which tag creates a hyperlink?</h3>
+<label><input type="radio" name="q5" value="a"> &lt;link&gt;</label><br>
+<label><input type="radio" name="q5" value="b"> &lt;a&gt;</label><br>
+<label><input type="radio" name="q5" value="c"> &lt;href&gt;</label>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+</div>
+
+<script>
+function checkAnswers(){
+
+    let answers={
+        q1:"a",
+        q2:"a",
+        q3:"b",
+        q4:"b",
+        q5:"b"
+    };
+
+    let score=0;
+    let resultHTML="";
+
+    for(let q in answers){
+        let selected=document.querySelector('input[name="'+q+'"]:checked');
+
+        if(!selected){
+            resultHTML += "<p class='wrong'>"+q.toUpperCase()+": Not Attempted ❌</p>";
+        }
+        else if(selected.value===answers[q]){
+            score++;
+            resultHTML += "<p class='correct'>"+q.toUpperCase()+": Correct ✅</p>";
+        }
+        else{
+            resultHTML += "<p class='wrong'>"+q.toUpperCase()+": Wrong ❌ (Correct: "+answers[q].toUpperCase()+")</p>";
+        }
+    }
+
+    let percent = (score/5)*100;
+
+    document.getElementById("result").innerHTML =
+    "<h2>Your Score: "+score+" / 5</h2>"+
+    "<h3>Percentage: "+percent+"%</h3><hr>"+
+    resultHTML;
+
+    // disable button after submission
+    document.querySelector("button").disabled=true;
+}
+</script>
+
+</body>
+</html>
