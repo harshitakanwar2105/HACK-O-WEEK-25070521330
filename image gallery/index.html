@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>India Through My Lens</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-wrapper">
+    <header>
+      <h1>India Through My Lens</h1>
+      <div class="accent-line"></div>
+      <p>A Curated Collection of Colors</p>
+    </header>
+
+    <main>
+      <div class="gallery-container" id="gallery-container">
+        <!-- Dynamic Images -->
+      </div>
+    </main>
+
+    <footer>
+      <p>Captured with ❤️</p>
+    </footer>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox hidden" aria-modal="true" role="dialog">
+    <div class="lightbox-overlay"></div>
+    <button class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous Image">&#10094;</button>
+    <div class="lightbox-content-wrapper">
+      <img src="" alt="" id="lightbox-img" class="lightbox-img">
+      <div class="lightbox-caption">
+        <h2 id="lightbox-title"></h2>
+        <p id="lightbox-count"></p>
+      </div>
+    </div>
+    <button class="lightbox-next" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
