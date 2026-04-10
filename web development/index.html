@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Bootcamp | Build Your Future</title>
+    <meta name="description" content="Become a Full-Stack Web Developer in 12 Weeks. Learn HTML, CSS, JavaScript, React, Node.js, and more with our professional bootcamp.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="ph-fill ph-code"></i> DevCamp
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#curriculum">Curriculum</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+            <a href="#pricing" class="btn btn-primary nav-cta">Enroll Now</a>
+            <div class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg">
+            <img src="assets/hero_bg.png" alt="Abstract Background">
+            <div class="overlay gradient-overlay"></div>
+        </div>
+        <div class="container hero-content pt-nav">
+            <div class="badge fade-up">Online & Offline Batches</div>
+            <h1 class="fade-up delay-1">Become a Full-Stack Web Developer in <span class="highlight">12 Weeks</span></h1>
+            <p class="fade-up delay-2">Master front-end and back-end technologies, build real-world projects, and launch your career in tech with expert mentorship.</p>
+            <div class="hero-buttons fade-up delay-3">
+                <a href="#pricing" class="btn btn-primary btn-large">Enroll Now</a>
+                <a href="#curriculum" class="btn btn-secondary btn-large">Download Brochure <i class="ph ph-download-simple"></i></a>
+            </div>
+            
+            <div class="stats-row fade-up delay-4">
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="500">0</span><span>+</span>
+                    <span class="stat-label">Students Placed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="50">0</span><span>+</span>
+                    <span class="stat-label">Hiring Partners</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="15">0</span><span>LPA</span>
+                    <span class="stat-label">Highest Package</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About the Bootcamp -->
+    <section id="about" class="about section-padding">
+        <div class="container about-grid">
+            <div class="about-image-wrapper reveal-left">
+                <img src="assets/about_image.png" alt="Student Coding" class="about-img">
+                <div class="experience-badge">
+                    <i class="ph-fill ph-star"></i>
+                    <span>Industry Relevant</span>
+                </div>
+            </div>
+            <div class="about-text reveal-right">
+                <h2 class="section-title">Transform Your Career with <span class="text-gradient">Real-World Skills</span></h2>
+                <p>Our Web Development Bootcamp is designed to take you from a beginner to an industry-ready full-stack developer. You won't just watch videos; you'll build real applications that solve real problems.</p>
+                <ul class="about-list">
+                    <li><i class="ph-fill ph-check-circle"></i> 100% Hands-on Learning</li>
+                    <li><i class="ph-fill ph-check-circle"></i> Build 5+ Production-ready Projects</li>
+                    <li><i class="ph-fill ph-check-circle"></i> Weekend Doubt Clearing Sessions</li>
+                    <li><i class="ph-fill ph-check-circle"></i> Professional Portfolio Development</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. What You'll Learn -->
+    <section id="curriculum" class="curriculum section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h2 class="section-title">What You'll <span class="text-gradient">Learn</span></h2>
+                <p>A comprehensive curriculum tailored to modern industry demands.</p>
+            </div>
+            <div class="tech-grid">
+                <!-- Card 1 -->
+                <div class="tech-card reveal-up delay-1">
+                    <div class="tech-icon html-css"><i class="ph ph-file-html"></i></div>
+                    <h3>HTML, CSS & Vanilla JS</h3>
+                    <p>Master the fundamentals of web design, responsive layouts, and interactive logic.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="tech-card reveal-up delay-2">
+                    <div class="tech-icon react"><i class="ph ph-atom"></i></div>
+                    <h3>React & Frontend Tech</h3>
+                    <p>Build dynamic, single-page applications using React, Hooks, and modern state management.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="tech-card reveal-up delay-3">
+                    <div class="tech-icon node"><i class="ph ph-hexagon"></i></div>
+                    <h3>Node.js & Express</h3>
+                    <p>Develop robust server-side APIs, handle authentication, and manage backend logic.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="tech-card reveal-up delay-4">
+                    <div class="tech-icon database"><i class="ph ph-database"></i></div>
+                    <h3>MongoDB & SQL</h3>
+                    <p>Architect databases, write complex queries, and manage data efficiently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Features / Why Choose Us -->
+    <section id="features" class="features section-padding">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h2 class="section-title">Why Choose <span class="text-gradient">DevCamp?</span></h2>
+                <p>We provide more than just code. We provide a launchpad for your tech career.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-box reveal-up delay-1">
+                    <div class="f-icon"><i class="ph ph-briefcase"></i></div>
+                    <h4>100% Placement Support</h4>
+                    <p>Resume building, mock interviews, and direct referrals to top tech companies.</p>
+                </div>
+                <div class="feature-box reveal-up delay-2">
+                    <div class="f-icon"><i class="ph ph-laptop"></i></div>
+                    <h4>Live Projects</h4>
+                    <p>Work on real-world case studies like E-commerce platforms and Social Media dashboards.</p>
+                </div>
+                <div class="feature-box reveal-up delay-3">
+                    <div class="f-icon"><i class="ph ph-users"></i></div>
+                    <h4>Expert Mentors</h4>
+                    <p>Learn from senior developers currently working at product-based companies.</p>
+                </div>
+                <div class="feature-box reveal-up delay-4">
+                    <div class="f-icon"><i class="ph ph-certificate"></i></div>
+                    <h4>Global Certification</h4>
+                    <p>Receive an industry-recognized certificate upon successful completion of the bootcamp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Course Timeline -->
+    <section id="timeline" class="timeline-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h2 class="section-title">12-Week <span class="text-gradient">Roadmap</span></h2>
+                <p>A structured path from basics to advanced full-stack development.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="time">Weeks 1-3</div>
+                        <h3>Frontend Fundamentals</h3>
+                        <p>Deep dive into HTML5, CSS3, Flexbox, Grid, and responsive web design principles. Build modern landing pages.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="time">Weeks 4-6</div>
+                        <h3>JavaScript Mastery</h3>
+                        <p>ES6+ syntax, DOM manipulation, asynchronous programming (Promises/Async-Await), and working with external APIs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="time">Weeks 7-9</div>
+                        <h3>React.js Ecosystem</h3>
+                        <p>Components, state management, context API, React Router, and building robust Single Page Applications (SPAs).</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="time">Weeks 10-12</div>
+                        <h3>Backend & Deployment</h3>
+                        <p>Node.js, Express, REST APIs, MongoDB, Authentication (JWT), and deploying your MERN stack applications to the cloud.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Testimonials -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h2 class="section-title">Success <span class="text-gradient">Stories</span></h2>
+                <p>Hear from our alumni who transformed their careers.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card glass-card reveal-up delay-1">
+                    <div class="quote-icon"><i class="ph-fill ph-quotes"></i></div>
+                    <p class="review-text">"The structured curriculum and supportive mentors helped me transition from a non-tech background to a Full-Stack Developer role within 4 months!"</p>
+                    <div class="student-info">
+                        <img src="assets/avatar_1.png" alt="Priya S." class="avatar">
+                        <div>
+                            <h4>Priya S.</h4>
+                            <span>SDE at TechCorp</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card reveal-up delay-2">
+                    <div class="quote-icon"><i class="ph-fill ph-quotes"></i></div>
+                    <p class="review-text">"Building live projects gave me the confidence to ace my technical interviews. The placement assistance is truly top-notch."</p>
+                    <div class="student-info">
+                        <img src="assets/avatar_2.png" alt="Rahul M." class="avatar">
+                        <div>
+                            <h4>Rahul M.</h4>
+                            <span>Frontend Engineer at Innovate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Pricing / Enrollment -->
+    <section id="pricing" class="pricing section-padding bg-gradient-brand text-white">
+        <div class="container">
+            <div class="pricing-wrapper reveal-up">
+                <div class="pricing-info">
+                    <h2>Invest in Your Future Today</h2>
+                    <p>Join the next cohort and start your journey to becoming a top-tier developer.</p>
+                    <ul class="pricing-features">
+                        <li><i class="ph-bold ph-check"></i> 12 Weeks Intensive Training</li>
+                        <li><i class="ph-bold ph-check"></i> Lifetime Access to Recorded Sessions</li>
+                        <li><i class="ph-bold ph-check"></i> 1-on-1 Mentorship</li>
+                        <li><i class="ph-bold ph-check"></i> 100% Placement Guarantee</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <div class="offer-tag">Limited Time Offer</div>
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span class="amount">49,999</span>
+                    </div>
+                    <p class="original-price"><strike>₹75,000</strike> (Save 33%)</p>
+                    <p class="emi-info">EMI options available starting at ₹4,500/month</p>
+                    <a href="#" class="btn btn-primary btn-block btn-large">Enroll Now</a>
+                    <p class="guarantee">14-Day Money-Back Guarantee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQ Section -->
+    <section id="faq" class="faq section-padding">
+        <div class="container faq-container">
+            <div class="section-header text-center reveal-up">
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+            </div>
+            <div class="accordion reveal-up delay-1">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do I need prior coding experience?
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>No, the bootcamp is designed to take you from absolute beginner to advanced. We start with the basics of HTML and CSS before moving into complex logic.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Is this program available online?
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, we offer both interactive online live classes and offline classroom batches depending on your preference.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How does the placement support work?
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We provide dedicated career services including resume reviews, GitHub portfolio building, mock interviews, and direct employer partner referrals.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Can I get a refund if I'm not satisfied?
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, we offer a 14-day full money-back guarantee. If you feel the bootcamp isn't right for you within the first two weeks, you'll receive a full refund.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo text-white">
+                    <i class="ph-fill ph-code"></i> DevCamp
+                </a>
+                <p>Empowering the next generation of software developers with practical, hands-on learning.</p>
+                <div class="social-links">
+                    <a href="#"><i class="ph-fill ph-facebook-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#curriculum">Curriculum</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="ph-fill ph-map-pin"></i> 123 Tech Park, Indiranagar, Bengaluru, India 560038</li>
+                    <li><i class="ph-fill ph-phone"></i> +91 98765 43210</li>
+                    <li><i class="ph-fill ph-envelope-simple"></i> hello@devcamp.in</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 DevCamp. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
